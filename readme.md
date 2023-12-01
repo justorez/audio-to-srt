@@ -21,6 +21,11 @@ pnpm add audio2srt -g
 
 ```bash
 audio2srt -a your_appid -t your_token -l en-US -f your.wav
+
+正在提交任务...
+提交成功，当前任务 ID： xxxxxx-xxxx-xxxx-xxxx-xxxxxx
+正在查询结果，请耐心等待...
+转换完成，已生成字幕文件： your.srt
 ```
 
 使用在线音频文件：

@@ -28,7 +28,7 @@ program
     .option('--use_ddc', '使用顺滑标注水词', boolstr)
     .option('--with_speaker_info', '返回说话人信息', boolstr)
     .helpOption('-h, --help', '打印帮助信息')
-    .version('v0.0.1', '-v, --version', '打印版本号')
+    .version('v0.0.2', '-v, --version', '打印版本号')
 
 program.addHelpText('after', `
 
@@ -97,7 +97,7 @@ class App {
                 ? `${path.parse(file).name}.srt`
                 : `${Date.now()}.srt`
             fs.writeFileSync(srtFile, srt, 'utf8')
-            console.log('转换完成，内容保存在：', srtFile)
+            console.log('转换完成，已生成字幕文件：', srtFile)
         } else {
             console.log(`提交失败：[${res.code}] ${res.message}`)
         }
