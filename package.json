@@ -1,0 +1,39 @@
+{
+  "name": "audio2srt",
+  "version": "0.0.1",
+  "description": "🎙Convert audio to subtitle by volcengine service",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "audio2srt": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "audio-to-srt",
+    "audio",
+    "subtitle",
+    "volcengine",
+    "cli"
+  ],
+  "author": "justorez",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justorez/audio2srt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justorez/audio2srt/issues"
+  },
+  "homepage": "https://github.com/justorez/audio2srt#readme",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "commander": "^11.1.0",
+    "lodash-es": "^4.17.21"
+  }
+}
