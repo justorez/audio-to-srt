@@ -1,11 +1,11 @@
-# audio2srt
+# audio-to-srt
 
 🎙通过[火山引擎](https://www.volcengine.com/)服务将本地或在线音频文件转换为 SRT 字幕文件。
 
 ## 安装
 
 ```bash
-pnpm add audio2srt -g
+pnpm add audio-to-srt -g
 ```
 
 ## 用法
@@ -20,7 +20,7 @@ pnpm add audio2srt -g
 使用本地音频文件：
 
 ```bash
-audio2srt -a your_appid -t your_token -l en-US -f your.wav
+ats -a your_appid -t your_token -l en-US -f your.wav
 
 正在提交任务...
 提交成功，当前任务 ID： xxxxxx-xxxx-xxxx-xxxx-xxxxxx
@@ -31,7 +31,7 @@ audio2srt -a your_appid -t your_token -l en-US -f your.wav
 使用在线音频文件：
 
 ```bash
-audio2srt -a your_appid -t your_token -l en-US -u http://xxx.com/your.wav
+ats -a your_appid -t your_token -l en-US -u http://xxx.com/your.wav
 ```
 
 生成的字幕文件会保存在执行命令的当前目录。
@@ -39,9 +39,9 @@ audio2srt -a your_appid -t your_token -l en-US -u http://xxx.com/your.wav
 查看帮助信息：
 
 ```bash
-audio2srt --help
+ats --help
 
-Usage: audio2srt [options]
+Usage: ats [options]
 
 Options:
   -a, --appid <value>            应用标识

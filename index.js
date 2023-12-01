@@ -7,7 +7,7 @@ import { omit } from 'lodash-es'
 const boolstr = () => 'True'
 
 program
-    .name('audio2srt')
+    .name('ats')
     .requiredOption('-a, --appid <value>', '应用标识')
     .requiredOption('-t, --token <value>', '鉴权 Token')
     .option('-l, --language <code>', '字幕语言类型', 'zh-CN')
@@ -28,7 +28,7 @@ program
     .option('--use_ddc', '使用顺滑标注水词', boolstr)
     .option('--with_speaker_info', '返回说话人信息', boolstr)
     .helpOption('-h, --help', '打印帮助信息')
-    .version('v0.0.2', '-v, --version', '打印版本号')
+    .version('v0.0.1', '-v, --version', '打印版本号')
 
 program.addHelpText('after', `
 
