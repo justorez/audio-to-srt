@@ -12,20 +12,22 @@ pnpm add audio-to-srt -g
 
 1. 首先去[官网](https://console.volcengine.com/speech/app)搜索`语音技术`，创建应用选择`音视频字幕生成`，第一次开通有 20 小时的免费试用包。
 2. 左侧导航进入`音视频字幕生成`，记住自己的 `appid` 和 `token`。
-3. 准备好音频文件，虽然原服务支持所有格式，但这里为了方便请统一转成 `.wav` 格式。使用 `ffmpeg` 或者格式工厂转换很方便。
+3. 可以将 `appid` 和 `token` 配置到环境变量，`ATS_APPID` 和 `ATS_TOKEN`，就不用每次都通过命令行传入了。
+4. 准备好音频文件，程序通过文件后缀名判断类型，所以请规范文件命名。使用 `ffmpeg` 或者格式工厂转换很方便。
     ```bash
-    # 将视频转为 wav
+    # 以 wav 格式为例：将视频转为 wav
     ffmpeg -i 1.mp4 -f wav -vn -acodec pcm_s16le -ar 16000 -ac 1 1.wav
     ```
+
 使用本地音频文件：
 
 ```bash
 ats -a your_appid -t your_token -l en-US -f your.wav
 
 正在提交任务...
-提交成功，当前任务 ID： xxxxxx-xxxx-xxxx-xxxx-xxxxxx
+提交成功，当前任务编号: xxxxxx-xxxx-xxxx-xxxx-xxxxxx
 正在查询结果，请耐心等待...
-转换完成，已生成字幕文件： your.srt
+转换完成，已生成字幕文件: your.srt
 ```
 
 使用在线音频文件：
@@ -44,8 +46,8 @@ ats --help
 Usage: ats [options]
 
 Options:
-  -a, --appid <value>            应用标识
-  -t, --token <value>            鉴权 Token
+  -a, --appid <value>            应用标识 (env: ATS_APPID)
+  -t, --token <value>            鉴权 Token (env: ATS_TOKEN)
   -l, --language <code>          字幕语言类型 (default: "zh-CN")
   -w, --words_per_line <number>  每行最多展示字数 (default: 46)
   -m, --max_lines <number>       每屏最多展示行数 (default: 1)
@@ -58,7 +60,6 @@ Options:
   --with_speaker_info            返回说话人信息
   -v, --version                  打印版本号
   -h, --help                     打印帮助信息
-
 
 Supported languages:
   +--------------+---------------+----------------+

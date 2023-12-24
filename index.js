@@ -27,16 +27,12 @@ export class App {
     async run() {
         const { file, url } = this.options
 
-        if (!file && !url) {
-            throw new Error('Option -f, --file or -u, --url not specified')
-        }
-
         console.log('正在提交任务...')
 
         const audio = file ? fs.readFileSync(file) : url
         const res = await this.submit(audio)
         if (res.code == '0') {
-            console.log('提交成功，当前任务 ID：', res.id)
+            console.log('提交成功，当前任务编号:', res.id)
             console.log('正在查询结果，请耐心等待...')
             const json = await this.query(res.id)
             const srt = jsonToSrt(json)
@@ -44,7 +40,7 @@ export class App {
                 ? `${path.parse(file).name}.srt`
                 : `${Date.now()}.srt`
             fs.writeFileSync(srtFile, srt, 'utf8')
-            console.log('转换完成，已生成字幕文件：', srtFile)
+            console.log('转换完成，已生成字幕文件:', srtFile)
         } else {
             console.log(`任务提交失败：[${res.code}] ${res.message}`)
         }
@@ -53,7 +49,9 @@ export class App {
     submit(value) {
         const isFile = Buffer.isBuffer(value)
         const data = isFile ? value : { url: value }
-        const contentType = isFile ? 'audio/wav' : 'application/json'
+        const contentType = isFile 
+            ? `audio/${this.options.fileType}`
+            : 'application/json'
         return this.service.post('/submit', data, {
             params: omit(this.options, 'file', 'url'),
             headers: {
