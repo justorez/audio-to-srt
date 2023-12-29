@@ -1,6 +1,6 @@
 {
   "name": "audio-to-srt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "🎙Convert audio to subtitle by volcengine service",
   "main": "index.js",
   "type": "module",

@@ -1,6 +1,11 @@
-import { program, Option, InvalidArgumentError } from 'commander'
+import { program, Option } from 'commander'
 import { App } from '../index.js'
-import path from 'path'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { readFileSync } from 'node:fs'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const pkg = JSON.parse(readFileSync(path.join(__dirname, '../package.json'), 'utf-8'))
 
 const boolstr = () => 'True'
 
@@ -23,7 +28,7 @@ program
     .option('--use_ddc', '使用顺滑标注水词', boolstr)
     .option('--with_speaker_info', '返回说话人信息', boolstr)
     .helpOption('-h, --help', '打印帮助信息')
-    .version('v0.0.1', '-v, --version', '打印版本号')
+    .version(`v${pkg.version}`, '-v, --version', '打印版本号')
 
 program.addHelpText('after',`
 Supported languages:
@@ -65,7 +70,7 @@ program.parse(process.argv)
     }
     
     if (opts.file) {
-        opts.fileType = path.parse(opts.file).ext.slice(1) || 'wav'
+        opts.fileType = path.extname(opts.file).slice(1) || 'wav'
     }
     
     new App(opts).run()
