@@ -1,5 +1,10 @@
 # audio-to-srt
 
+<p>
+    <a href="https://www.npmjs.com/package/audio-to-srt"><img src="https://badgen.net/npm/v/audio-to-srt"></a>
+    <a href="https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml"><img src="https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml/badge.svg"></a>
+</p>
+
 🎙通过[火山引擎](https://www.volcengine.com/)服务将本地或在线音频文件转换为 SRT 字幕文件。
 
 ## 安装
