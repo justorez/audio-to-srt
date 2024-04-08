@@ -1,9 +1,7 @@
 # audio-to-srt
 
-<p>
-    <a href="https://www.npmjs.com/package/audio-to-srt"><img src="https://badgen.net/npm/v/audio-to-srt"></a>
-    <a href="https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml"><img src="https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml/badge.svg"></a>
-</p>
+[![npm](https://badgen.net/npm/v/audio-to-srt)](https://www.npmjs.com/package/audio-to-srt)
+[![publish](https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml/badge.svg)](https://github.com/justorez/audio-to-srt/actions/workflows/publish.yml)
 
 🎙通过[火山引擎](https://www.volcengine.com/)服务将本地或在线音频文件转换为 SRT 字幕文件。
 
@@ -56,12 +54,12 @@ Options:
   -l, --language <code>          字幕语言类型 (default: "zh-CN")
   -w, --words_per_line <number>  每行最多展示字数 (default: 46)
   -m, --max_lines <number>       每屏最多展示行数 (default: 1)
-  -c, --caption_type <type>      字幕识别类型 (choices: "auto", "speech", "singing", default: "auto")
+  -c, --caption_type <type>      字幕识别类型 (choices: "auto", "speech", "singing", default: "speech")
   -f, --file <path>              音频文件路径
   -u, --url <link>               音频链接
   --use_itn                      使用数字转换功能
-  --use_punc                     增加标点
-  --use_ddc                      使用顺滑标注水词
+  --no-use_punc                  不增加标点
+  --no-use_ddc                   不使用顺滑标注水词
   --with_speaker_info            返回说话人信息
   -v, --version                  打印版本号
   -h, --help                     打印帮助信息
@@ -71,15 +69,15 @@ Supported languages:
   | 语言         | Language Code | 分句长度推荐值 |
   +--------------+---------------+----------------+
   | 中文普通话   | zh-CN         | 15             |
+  | 英语（美国） | en-US         | 55             |
+  | 日语         | ja-JP         | 32             |
+  | 韩语         | ko-KR         | 32             |
   | 粤语         | yue           | 15             |
-  | 吴语-上海话  | wuu           | 15             |
+  | 上海话       | wuu           | 15             |
   | 闽南语       | nan           | 15             |
   | 西南官话     | xghu          | 15             |
   | 中原官话     | zgyu          | 15             |
   | 维语         | ug            | 55             |
-  | 英语（美国） | en-US         | 55             |
-  | 日语         | ja-JP         | 32             |
-  | 韩语         | ko-KR         | 32             |
   | 西班牙语     | es-MX         | 55             |
   | 俄语         | ru-RU         | 55             |
   | 法语         | fr-FR         | 55             |
